@@ -1,17 +1,17 @@
-# Pipex
+# 📝 Pipex
 Pipex is a project from 42 aimed at reproducing the behavior of the pipe ``` | ``` command in UNIX. 
 It allows executing two commands by linking them ia an inter-process communication pipe, just like the bash shell does.
 
 The project teaches process management, the use of pipes (```pipe())```, redirections ```(dup2())```, and program execution (```execve()```).
 
-# Compilation and installation
+# 📁 Compilation and installation
 Clone this repository and compile the program using make:
 ```
 make
 ```
 This generates an executable called pipex in the current directory
 
-# Usage
+# 🚀 Usage
 Basic syntax
 ```
 ./pipex infile "cmd1" "cmd2" outfile
@@ -21,7 +21,7 @@ Basic syntax
 ```cmd2```: second command executed, receiving output from ```cmd1```
 ```outfile```: output file containing the final result
 
-# Example Usage
+# 🔹Example Usage
 Equivalent to the shell command:
 ```
 < infile cmd1 | cmd2 > outfile
@@ -32,14 +32,14 @@ Practcal exemple with ```ls``` and ```wc```:
 ```
 This lists the files in ```infile```, counts the line and writes the result to ```outfile```
 
-# Features
+# 📌 Features
 - File management (```open```, ```close```, ```read```, ```write```)
 - Process creation (```fork```)
 - Inter-Process communication (```pipe```)
 - Command Execution (```execve```)
 - Error handling
 
-# Bonus
+# 🛠 Bonus
 The bonus project adds:
 - Handling multiple pipes (```cmd1 | cmd2 | cmd3 | ... | cmdN```)
 - Support for (```here_doc```)
@@ -47,7 +47,7 @@ The bonus project adds:
 # Syntax
 ```./pipex here_doc LIMITER "cmd1" "cmd2" "..." "cmdN" outfile```
 
-# Internal Workflow
+# 📜 Internal Workflow
 1. Opening files (```open()```)
 2. Creating the pipes (```pipe()```)
 3. Forking process (```fork()```)
@@ -55,14 +55,14 @@ The bonus project adds:
 5. Executing commands (```execve()```)
 6. Closing files and pipes (```close()```)
 
-# Error handling
+# 🐞 Error handling
 The program handles:
 - Non-existent files
 - Insufficient permissions
 - Command not found
 - Invalid arguments
 
-My understanding of the project: 
+# 🌀 My understanding of the project: 
 ./pipex
 ```
 [ Parent Process ]
