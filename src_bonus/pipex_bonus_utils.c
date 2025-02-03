@@ -17,7 +17,7 @@
 ///		- L'enfant ecrit dams le pipe et exec cmd
 /// @param argv La commande a executer
 /// @param envp Les variables d'environnement du programme
-void	child_process_bonus(char *argv, char **envp)
+void	child_process_bonus(char *argv, char **envp, int infile, int outfile)
 {
 	pid_t	pid;
 	int		fd[2];
@@ -31,12 +31,16 @@ void	child_process_bonus(char *argv, char **envp)
 	{
 		close(fd[0]);
 		dup2(fd[1], STDOUT_FILENO);
+		close(fd[1]);
+		close(infile);
+		close(outfile);
 		execute_command(argv, envp);
 	}
 	else
 	{
 		close(fd[1]);
 		dup2(fd[0], STDIN_FILENO);
+		clsoe(fd[0]);
 		waitpid(pid, NULL, RET_OK);
 	}
 }
