@@ -77,7 +77,7 @@ void	free_split(char **paths);
 
 // BONUS FUNCTIONS
 void	usage_bonus(void);
-void	child_process_bonus(char *argv, char **envp);
+void	child_process_bonus(char *argv, char **envp, int infile, int outfile);
 int		here_doc(char *limiter);
 int		open_file(char *argv, int flag);
 int		open_infile_outfile(char **argv, int argc, int *infile, int *outfile);
