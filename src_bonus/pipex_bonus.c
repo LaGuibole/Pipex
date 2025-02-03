@@ -12,6 +12,14 @@
 
 #include "../includes/pipex.h"
 
+static void close_fds(int infile, int outfile)
+{
+	if (infile > 0)
+		close(infile);
+	if (outfile > 0)
+		close(outfile);
+}
+
 /// @brief function to open infile and outfile
 /// @param argv
 /// @param argc
@@ -63,8 +71,7 @@ int	main(int argc, char **argv, char **envp)
 		while (i < argc - 2)
 			child_process_bonus(argv[i++], envp);
 		dup2(outfile, STDOUT_FILENO);
-		close(infile);
-		close(outfile);
+		close_fds(infile, outfile)
 		execute_command(argv[argc - 2], envp);
 	}
 	usage_bonus();
