@@ -59,10 +59,12 @@ int	main(int argc, char **argv, char **envp)
 				return (ft_putstr_fd(OPEN_IN_ERR, STDERR_FILENO), RET_ERR);
 		}
 		dup2(infile, STDIN_FILENO);
-		i = 3;
+		i = 2 + (ft_strncmp(argv[1], "here_doc", 8) == RET_OK);
 		while (i < argc - 2)
 			child_process_bonus(argv[i++], envp);
 		dup2(outfile, STDOUT_FILENO);
+		close(infile);
+		close(outfile);
 		execute_command(argv[argc - 2], envp);
 	}
 	usage_bonus();
